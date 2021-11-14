@@ -8,9 +8,9 @@ const StoryReel = () => {
     return (
         <div className="storyReel">
             <Story image={kglOne} profileSrc={kglTwo} title="William" />
+            <Story image={kglOne} profileSrc={kglTwo} title="Willy" />
             <Story image={kglOne} profileSrc={kglTwo} title="William" />
-            <Story image={kglOne} profileSrc={kglTwo} title="William" />
-            <Story image={kglOne} profileSrc={kglTwo} title="William" />
+            <Story image={kglOne} profileSrc={kglTwo} title="Duse" />
             <Story image={kglOne} profileSrc={kglTwo} title="William" />
             <Story image={kglOne} profileSrc={kglTwo} title="William" />
         </div>
