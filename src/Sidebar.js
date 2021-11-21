@@ -10,12 +10,15 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import React from 'react'
 import './Sidebar.css'
 import SidebarRow from './SidebarRow'
+import { useStateValue } from './StateProvider';
 
 
 const Sidebar = () => {
+    const [{ user }, dispatch] = useStateValue();
+
     return (
         <div className="sidebar">
-            <SidebarRow src="somewhere" title="William" />
+            <SidebarRow src={user.photoURl} title={user.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
             <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
             <SidebarRow Icon={PeopleIcon} title='Friends' />

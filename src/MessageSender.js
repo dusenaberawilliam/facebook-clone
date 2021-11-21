@@ -6,8 +6,11 @@ import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
 
 import React, { useState } from 'react'
 import './MessageSender.css'
+import { useStateValue } from './StateProvider';
 
 const MessageSender = () => {
+    const [{ user }, dispatch] = useStateValue();
+
 
     const [input, setInput] = useState("");
     const [imageUrl, setImageUrl] = useState("");
@@ -25,9 +28,9 @@ const MessageSender = () => {
     return (
         <div className="messageSender" >
             <div className="messageSender__top">
-                <Avatar />
+                <Avatar src={user.photoURl} />
                 <form>
-                    <input value={input} onChange={(e) => setInput(e.target.value)} className="messageSender__input" placeholder="What's on your mind" />
+                    <input value={input} onChange={(e) => setInput(e.target.value)} className="messageSender__input" placeholder={`What's on your mind ${user.displayName}`} />
                     <input value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} placeholder="image URL (Optional)" />
                     <button onClick={handleSubmit} >Hidden submit</button>
                 </form>

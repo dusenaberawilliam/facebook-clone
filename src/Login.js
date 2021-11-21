@@ -1,11 +1,24 @@
 import { Button } from '@mui/material'
 import React from 'react'
 import './Login.css'
+import { signInWithGoogle } from './firebase'
+import { useStateValue } from './StateProvider'
+import { actionTypes } from './reducer'
 
 const Login = () => {
 
-    const signIn = () => {
+    const [state, dispatch] = useStateValue();
 
+    const signIn = () => {
+        signInWithGoogle()
+            .then((result) => {
+                dispatch({
+                    type: actionTypes.SET_USER,
+                    user: result.user
+                })
+                // console.log(result)
+            })
+            .catch((error) => alert(error.message))
     }
 
     return (

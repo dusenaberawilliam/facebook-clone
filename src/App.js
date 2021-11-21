@@ -4,9 +4,12 @@ import Header from './Header';
 import Login from './Login';
 import Sidebar from './Sidebar';
 import Widgets from './Widgets';
+import { useStateValue } from './StateProvider';
+
 
 function App() {
-  const user = "";
+  const [{ user }, dispatch] = useStateValue();
+  localStorage.setItem("user", user)
   return (
     <div className="app">
       {!user ? (
